@@ -28,8 +28,8 @@ class SLL {
     return this
   }
 
-  remove() {
-
+  remove(offset) {
+    if (this.head.next === null) return null
   }
 
   findNthNode() {
