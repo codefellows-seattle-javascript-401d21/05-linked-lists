@@ -1,6 +1,6 @@
 'use strict';
 
-const Nd = require('./lib/nd.js');
+const Nd = require('./nd.js');
 
 class SLL {
   constructor() {
@@ -25,13 +25,37 @@ class SLL {
     return this;
   }
 
-  reverse() {
+  reverse(sll) {
+    //if only one node, return that node
+    if(!sll.head || !sll.head.next) return sll;
 
+    let nodes = [], current = sll.head;
+
+    while(current){
+      nodes.push(current);
+      current = current.next;
+    }
+
+    let reversedLL = new Nd();
+
+    reversedLL.head = nodes.pop();
+    current = reversedLL.head;
+
+    let node = nodes.pop();
+
+    while(node){
+      node.next = null;
+      current.next = node;
+
+      current = current.next;
+      node = nodes.pop();
+    }
+    return reversedLL;
   }
 
   remove(offset) {
-    
+
   }
 
-  findNthNode(val, n)
+  // findNthNode(val, n)
 }
