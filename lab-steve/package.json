@@ -1,0 +1,27 @@
+{
+  "name": "05-linked-lists",
+  "version": "1.0.0",
+  "description": "Single Linked List utility functions",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevegcarpenter/05-linked-lists.git"
+  },
+  "author": "Steve Carpenter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stevegcarpenter/05-linked-lists/issues"
+  },
+  "homepage": "https://github.com/stevegcarpenter/05-linked-lists#readme",
+  "dependencies": {
+    "eslint": "^4.15.0",
+    "jest": "^22.1.4"
+  }
+}
