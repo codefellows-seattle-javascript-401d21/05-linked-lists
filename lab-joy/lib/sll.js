@@ -42,16 +42,34 @@ class SLL {
     }
 
     remove(offset) {
+        if (!Number.isInteger(offset) || offset < 1) return null;
         let current = this.head;
+        if (offset === 1) {
+            if (current.next) {
+                this.head = current.next;
+            }
+            else {
+                this.head = null;
+                this.tail = null;
+            }
+            return this;
+        }
         for (let i = 1; i < offset - 1; i++) {
-            if (!current.next && i < offset) return null;
+            if (!current.next.next) return null;
             current = current.next;
         }
-        current.next = current.next.next;
+        if (current.next.next) {
+            current.next = current.next.next;
+        }
+        else {
+            current.next = null;
+            this.tail = current;
+        }
         return this;
     }
 
     findNthNodeFromEnd(n) {
+        if (!Number.isInteger(n) || n < 1) return null;
         this.reverseList();
         let current = this.head;
         for (let i = 1; i < n; i++) {
