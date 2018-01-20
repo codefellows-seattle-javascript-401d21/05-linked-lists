@@ -1,16 +1,18 @@
 'use strict';
 
-import Nd from './nd'
+const Nd = require('./nd');
 
 class SLL {
   constructor (){
     this.head = null;
+    this.llen = 0;
   }
   insertHead (val) {
     let nd = new Nd(val);
     nd.next = this.head;
     this.head = nd;
-    return this
+    this.llen++;
+    return this;
   }
 
   insertEnd (val) {
@@ -18,23 +20,27 @@ class SLL {
     
     if (!this.head) {
       this.head = nd;
+      this.llen++;
       return this;
     }
 
     for (var itr = this.head; itr.next; itr = itr.next);
     itr.next = nd;
-    return this
+    this.llen++;
+    return this;
   }
   remove (rem) {
     if (!rem) return null;
-    if (rem = 1) { 
+    if (rem === 1) { 
       this.head = this.head.next;
+      this.llen--;
       return this;
     }
     let curNode = this.head, preNode = null;
-    for (var loc = 0; loc < counter; loc++) {
+    for (var loc = 0; loc < rem; loc++) {
       if (loc === rem - 1) {
         preNode.next = curNode.next;
+        this.llen--;
         return this;
       }
       preNode = curNode;
@@ -58,3 +64,5 @@ class SLL {
 
   }
 }
+
+module.exports = SLL;
