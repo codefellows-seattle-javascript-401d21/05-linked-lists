@@ -1,0 +1,22 @@
+{
+  "name": "whiteboard-challenge-05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "jest": "^22.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
