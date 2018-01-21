@@ -4,11 +4,11 @@ const Nd = require('./nd')
 // import Nd from './nd'
 
 class SLL {
-  constructor() {
+  constructor() { // Big-O runtime:  O(1)
     this.head = null
   }
 
-  insertHead(val) {
+  insertHead(val) { // Big-O runtime:  O(1)
     let nd = new Nd(val)
 
     nd.next = this.head
@@ -16,7 +16,7 @@ class SLL {
     return this
   }
 
-  insertEnd(val) {
+  insertEnd(val) { // Big-O runtime:  O(1) if no head, O(n) if there is a head
     let nd = new Nd(val)
 
     if(!this.head) {
@@ -29,7 +29,7 @@ class SLL {
     return this
   }
 
-  remove(offset) {
+  remove(offset) { // Big-O runtime:  O(1) if no head, O(n) otherwise
       if (this.head === null) return null;
 
       let temp = this.head;
@@ -40,7 +40,7 @@ class SLL {
           return this;
       }
 
-      for (let i = 0; temp != null i < position - 1; i++) { // find the node prev to one to be deleted
+      for (let i = 0; temp != null && i < offset - 1; i++) { // find the node prev to one to be deleted
           temp = temp.next;
       }
 
@@ -56,7 +56,7 @@ class SLL {
       return this;
   }
 
-  reverse() {
+  reverse() { // Big-O runtime:  O(n)
       let prevNode = null;
       let currNode = this;
       let nextNode = null;
@@ -73,7 +73,7 @@ class SLL {
   }
 
   findNthNodeFromEnd(n) {
-
+    // not implemented
   }
 }
 
