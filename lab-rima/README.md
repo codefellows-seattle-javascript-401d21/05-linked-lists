@@ -31,7 +31,15 @@ This is an implementation for Slingly Linked List. It has five methods besides a
 #### findNthNode function
 ##### Parameters
 * Valid input: one index (type number)
-* Invalid input: less/more than length of linked  list
+* Invalid input: less/more than length of linked list
+##### Return value
+* Valid input: an instance of SLL class
+* Invalid input: null
+
+#### findNthNodeFromEnd function
+##### Parameters
+* Valid input: one index (type number)
+* Invalid input: less/more than length of linked list
 ##### Return value
 * Valid input: an instance of SLL class
 * Invalid input: null
@@ -74,6 +82,14 @@ the findNthNode(2) returns 2nd node
 s.findNthNode(2) = {value: 3, next null}
 */
 
+// find 2nd node from end
+s.findNthNodeFromEnd(2);
+
+/*
+the findNthNodeFromEnd(2) returns 1st node from head
+s.findNthNodeFromEnd(2) = {value: 2, next {value: 3, next: null}}
+*/
+
 // reverse s
 s.reverse();
 
@@ -85,11 +101,25 @@ s = {head: {value: 3, next: {value: 2, next: null}}}
 
 ## Installation
 git clone this repo
+
 move all files to your desire location
+
 in a module,
 ```
 const sll = require('file path');
 ```
 
 ## Tests
-
+```
+npm install -D jest
+npm init -y
+```
+set scripts in package.json
+```
+"scripts": {
+    "test": "jest --verbose"
+```
+run
+```
+npm test
+```

@@ -29,11 +29,7 @@ class SLL {
       this.head = node;
       return this;
     }
-
-    /*
-		for(var itr = this.head; itr.next; itr = itr.next);
-		itr.next = node;
-		*/
+    
     let current = this.head;
     while(current.next){
       current = current.next;
@@ -94,6 +90,12 @@ class SLL {
       currentNode = currentNode.next;
     }
     return currentNode;
+  }
+
+  // O(n)
+  findNthNodeFromEnd(n) {
+    // find(this.length - N + 1)thNode from head
+    return this.findNthNode(this.length - n + 1);
   }
 }
 

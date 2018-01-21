@@ -135,7 +135,7 @@ describe('Sll module', function(){
     describe('valid input', function(){
 
       test(
-        'should remove Nth node if an instance os class Sll has multiple nodes', () => {
+        'should remove Nth node if an instance of class Sll has multiple nodes', () => {
           // create a sll obj
           let validSll = new sll();
           validSll.insertHead(1);
@@ -224,7 +224,7 @@ describe('Sll module', function(){
     describe('valid input', function(){
 
       test(
-        'should return Nth node if an instance os class Sll has multiple nodes', () => {
+        'should return Nth node if an instance of class Sll has multiple nodes', () => {
           // create a sll obj
           let validSll = new sll();
           validSll.insertHead(1);
@@ -279,6 +279,69 @@ describe('Sll module', function(){
       test(
         'should return null if N is more than length of sll', () => {
           expect(validSll.findNthNode(11)).toEqual(null);
+        });
+    });
+  });
+
+  describe('findNthNodeFromEnd function', function(){
+    describe('valid input', function(){
+
+      test(
+        'should return Nth node from tail node if an instance of class Sll has multiple nodes', () => {
+          // create a sll obj
+          let validSll = new sll();
+          validSll.insertHead(1);
+          // insert node in end os all
+          for(let i = 2; i < 11; i++){
+            validSll.insertEnd(i);
+          }
+				
+          expect(validSll.findNthNodeFromEnd(7).value).toEqual(4);
+        });
+
+      test(
+        'should return null if an instance of class Sll is empty (head is null)', () => {
+          let emptySll = new sll();
+          expect(emptySll.findNthNodeFromEnd(9)).toEqual(null);
+        });
+
+      test(
+        'should return head if an instance of class Sll has only head and 1 is passed', () => {
+          // create a sll obj
+          let headOnlySll = new sll();
+          headOnlySll.insertHead(1);
+          expect(headOnlySll.findNthNodeFromEnd(1).value).toEqual(1);
+        });
+    });
+	
+    describe('invalid input', function(){
+
+      // create a sll obj
+      let validSll = new sll();
+      validSll.insertHead(1);
+      // insert node in end os all
+      for(let i = 2; i < 11; i++){
+        validSll.insertEnd(i);
+      }
+
+      test(
+        'should return null if N is not number', () => {	
+          expect(validSll.findNthNodeFromEnd('')).toBe(null);
+        });
+
+      test(
+        'should return null if N is 0', () => {
+          expect(validSll.findNthNodeFromEnd(0)).toEqual(null);
+        });
+
+      test(
+        'should return null if N is negative', () => {
+          expect(validSll.findNthNodeFromEnd(-1)).toEqual(null);
+        });
+			
+      test(
+        'should return null if N is more than length of sll', () => {
+          expect(validSll.findNthNodeFromEnd(11)).toEqual(null);
         });
     });
   });
