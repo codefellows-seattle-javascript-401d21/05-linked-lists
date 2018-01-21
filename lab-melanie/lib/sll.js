@@ -25,37 +25,34 @@ class SLL {
     return this;
   }
 
-  reverse(sll) {
-    //if only one node, return that node
-    if(!sll.head || !sll.head.next) return sll;
+  reverse() {
+    let curr, nxt, prev;
+    curr = this.head; // points to head
+    nxt = null; //represents next node
+    prev = null; //represents previous node
+    this.head = null; //setting up for while loop
 
-    let nodes = [], current = sll.head;
-
-    while(current){
-      nodes.push(current);
-      current = current.next;
+    //while current node is not null
+    while(!this.head){
+      //step one, is there another node? next node is current.next
+      curr.next ? nxt = curr.next : nxt = null;
+      //step two, is there a previous node? current.next now points to previous
+      prev ? curr.next = prev : curr.next = null;
+      //step three, previous is now what was current node
+      prev = curr;
+      //step four, if next node is not null, current node is now next node, otherwise current node is now the head node
+      nxt ? curr = nxt : this.head = curr;
     }
-
-    let reversedLL = new Nd();
-
-    reversedLL.head = nodes.pop();
-    current = reversedLL.head;
-
-    let node = nodes.pop();
-
-    while(node){
-      node.next = null;
-      current.next = node;
-
-      current = current.next;
-      node = nodes.pop();
-    }
-    return reversedLL;
+    //once current node is null, previous now represents the head node
+    return this;
   }
 
   remove(offset) {
+
 
   }
 
   // findNthNode(val, n)
 }
+
+module.exports = SLL;

@@ -1,18 +1,8 @@
 'use strict';
 
-const sll = require('./lib/sll.js');
+const SLL = require('./lib/sll.js');
 
-console.log(sll.SLL.reverse(
-  {
-    head: {
-      value: 1,
-      next: {
-        value: 2,
-        next: {
-          value: 3,
-          next: null,
-        },
-      },
-    },
-  })
-);
+let list = new SLL();
+let a = list.insertHead('hello');
+let b = a.insertEnd('world');
+console.log(b.reverse());
