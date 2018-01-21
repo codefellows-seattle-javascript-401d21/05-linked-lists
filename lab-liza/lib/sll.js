@@ -28,7 +28,21 @@ class SLL {
     return this;
   }
 
-  remove() {
+  remove(offset) {
+    let curr = this.head;
+    let prev = null;
+
+    while(offset !== 0){
+      offset--;
+      prev = curr;
+      curr = curr.next;
+    }
+    prev.next = curr.next;
+    curr.next = null;
+    return this;
+  }
+
+  reverse() {
     let curr = this.head;
     let prev = null;
     let next = null;
