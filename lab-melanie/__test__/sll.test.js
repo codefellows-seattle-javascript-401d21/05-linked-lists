@@ -30,6 +30,14 @@ describe('Single Linked List Module', function() {
       let a = list.insertHead('hello');
       expect(a.insertEnd('world')).toEqual({head: {value: 'hello', next: {value: 'world', next: null}}});
     });
+    it('should return null if no value passed', () => {
+      let list = new SLL();
+      expect(list.insertEnd()).toBeNull();
+    });
+    it('should return a node', () => {
+      let list = new SLL();
+      expect(list.insertEnd('hello')).not.toBeNull();
+    });
   });
   describe('#Reverse', () => {
     it('should reverse linked list', () => {
@@ -37,7 +45,17 @@ describe('Single Linked List Module', function() {
       let a = list.insertHead('hello');
       let b = a.insertEnd('world');
       expect(b.reverse()).toEqual({head: {value: 'world', next: { value: 'hello', next:null}}});
-      console.log(b.reverse());
+    });
+    it('should return a linked list', () => {
+      let list = new SLL();
+      let a = list.insertHead('hello');
+      let b = a.insertEnd('world');
+      expect(b.reverse()).not.toBeNull();
+    });
+    it('should return the same node if only one node in linked list', () => {
+      let list = new SLL();
+      let a = list.insertHead('hello');
+      expect(a.reverse()).toEqual({head: {value: 'hello', next: null}});
     });
   });
   describe('#Remove', () => {
@@ -45,6 +63,16 @@ describe('Single Linked List Module', function() {
       let list = new SLL();
       let a = list.insertHead('hello');
       expect(a.remove(1)).toEqual({head: null});
+    });
+    it('should return null if no argument passed', () => {
+      let list = new SLL();
+      let a = list.insertHead('hello');
+      expect(a.remove()).toBeNull();
+    });
+    it('should return null if argument passed is not a number', () => {
+      let list = new SLL();
+      let a = list.insertHead('hello');
+      expect(a.remove('a')).toBeNull();
     });
   });
 });

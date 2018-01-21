@@ -18,6 +18,7 @@ class SLL {
   }
 
   insertEnd(val) {
+    if(!val) return null;
     let nd = new Nd(val);
     if(!this.head) {
       this.head = nd;
@@ -81,7 +82,7 @@ class SLL {
     }
   }
 
-  //this function lead to building a counter in the constructor
+  //****** not tested due to need to incorporate list counter in constructor, just here for stretch goal practice ************//
   findNthNodeFromEnd(n) {
 
     //invalid n arguments
