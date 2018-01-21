@@ -2,7 +2,6 @@
 
 const sll = require('./lib/sll');
 
-
 function logNodes(sll){
   var current = sll.head;
   var i = 1;
@@ -42,3 +41,6 @@ console.log('\nFind 4th node value is ' + s.findNthNode(4).value);
 s.reverse();
 console.log('\nReverse s -> ');
 logNodes(s);
+
+// find 4th node from end
+console.log('\nFind 4th node value from end is ' + s.findNthNodeFromEnd(4).value + '\n');
