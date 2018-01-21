@@ -1,6 +1,6 @@
 ## Synopsis
 
-This is an implementation for Slingly Linked List. It has five methods besides a constructor.
+This is an implementation for Singly Linked List. It has five methods besides a constructor.
 
 #### insertHead function - To insert a node at the  head of list
 ##### Parameters
