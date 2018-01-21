@@ -54,6 +54,7 @@ class SLL {
         console.log('prev',prev);
         console.log('current',current);
         prev.next = current.next;
+        
       }
     }
   }
