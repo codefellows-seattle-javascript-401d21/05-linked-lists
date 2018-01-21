@@ -46,7 +46,7 @@ The **findNthNodeFromEnd method** also takes in one argument, which is the offse
 
 ```findNthNodeFromEnd(1); // returns {value: 2, next: null}```
 
-** Installation and Testing
+## Installation and Testing
 To install this data structure, you can [git clone](https://git-scm.com/docs/git-clone) this repository to your computer. In your terminal, navigate to the lab-joy folder within the cloned directory and use the command __npm install__. To run my tests for this data structure, use the command __npm run test__. To use the SLL class in your terminal, enter the command __node__ to initiate Node.js. Then enter:
 
 ```const sll = require('./lib/sll');```
