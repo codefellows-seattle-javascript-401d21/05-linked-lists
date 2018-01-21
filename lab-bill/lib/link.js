@@ -49,10 +49,10 @@ class SLL {
       current = current.next;
     //   console.log('current',current);
       if (i  === offset - 1 ) {
-        console.log('offset - 1 ',offset - 1);
-        console.log('i',i);
-        console.log('prev',prev);
-        console.log('current',current);
+        // console.log('offset - 1 ',offset - 1);
+        // console.log('i',i);
+        // console.log('prev',prev);
+        // console.log('current',current);
         prev.next = current.next;
         
       }
@@ -62,11 +62,16 @@ class SLL {
 module.exports = SLL;
 let list = new SLL;
 
-list.insertEnd(1);
-list.insertEnd(2);
-list.insertEnd(3);
-list.insertEnd(4);
-list.insertEnd(5);
-console.log('before',list);
-list.remove(1);
-console.log('after',list);
+// list.insertEnd(1);
+// list.insertEnd(2);
+// list.insertEnd(3);
+// list.insertEnd(4);
+// list.insertEnd(5);
+// // console.log('before',list);
+// list.remove(1);
+// // console.log('after',list);
+
+list.insertHead(1);
+// list.insertHead(2);
+// list.insertHead(3);
+console.log(list)
