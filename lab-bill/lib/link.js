@@ -9,6 +9,7 @@ class SLL {
   }
 
   insertHead(val) {
+    // O(1) because it will always insert at the first point no matter the size of the system. It would operate the same way with 1 node as it would with 1000.
     let nd = new Nd(val);
     nd.next = this.head;
     this.head = nd;
@@ -16,6 +17,7 @@ class SLL {
   }
 
   insertEnd(val) {
+    // O(n) because it involves a for loop that iterates through the entire list. As the list grows and grows it would take longer and longer to iterate to the end.
     let nd = new Nd(val);
     if(!this.head) {
       this.head = nd;
@@ -27,6 +29,7 @@ class SLL {
     return this;
   }
   reverse() {
+    // O(n) A single while loop will iterate through each instance of the list one time. As the list grew longer this would take longer to complete in a linear fashion.
     let nxt;
     let prev = null;
     let current = this.head;
@@ -39,24 +42,16 @@ class SLL {
     this.head = prev;
   }
   remove(offset) {
+    // O(n) Again a single for loop means the larger the data set the longer it will take to iterate through the items. The increase in processing time is linear to the length of the list.
     let prev;
     let current = this.head;
     if (offset === 0) {
       this.head = this.head.next;
     }
     for(var i = 0; i <= offset; i++) {
-      // console.log('current',current);
-    //   console.log('offset',offset);
-    //   console.log('i + 1',i + 1);
       prev = current;
-      //   console.log('prev',prev);
       current = current.next;
-      //   console.log('current',current);
       if (i  === offset - 1 ) {
-        // console.log('offset - 1 ',offset - 1);
-        // console.log('i',i);
-        // console.log('prev',prev);
-        // console.log('current',current);
         prev.next = current.next;
         
       }
@@ -64,14 +59,5 @@ class SLL {
   }
 }
 module.exports = SLL;
-let list = new SLL;
 
-list.insertEnd(1);
-list.insertEnd(2);
-list.insertEnd(3);
-// list.insertEnd(3);
-// list.insertEnd(4);
-// list.insertEnd(5);
-// console.log('before',list);
-list.remove(-1);
-// console.log('after',list);
+
