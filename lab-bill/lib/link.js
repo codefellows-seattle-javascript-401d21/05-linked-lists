@@ -28,7 +28,7 @@ class SLL {
   }
   reverse() {
     let nxt;
-    let prev;
+    let prev = null;
     let current = this.head;
     while (current !== null){
       nxt = current.next,
@@ -62,16 +62,11 @@ class SLL {
 module.exports = SLL;
 let list = new SLL;
 
-// list.insertEnd(1);
-// list.insertEnd(2);
+list.insertEnd(1);
+list.insertEnd(2);
 // list.insertEnd(3);
 // list.insertEnd(4);
 // list.insertEnd(5);
-// // console.log('before',list);
-// list.remove(1);
-// // console.log('after',list);
-
-list.insertHead(1);
-// list.insertHead(2);
-// list.insertHead(3);
-console.log(list)
+// console.log('before',list);
+list.reverse();
+console.log('after',list);
