@@ -16,7 +16,7 @@ let list = new SLL();
 console.log(list); // {head: null}
 ```
 
-The insertHead method takes in a value, uses the Nd module to create a node with that value, and places that node at the **_beginning_** of a linked list.
+The `insertHead` method takes in a value, uses the Nd module to create a node with that value, and places that node at the **_beginning_** of a linked list.
 
 ```javascript
 let list = new SLL();
@@ -24,7 +24,7 @@ let a = list.insertHead(2).insertHead(1);
 console.log(a); // {head: {value: 1, next: { value: 2, next: null}}}
 ```
 
-The insertEnd method takes in a value, uses the Nd module to create a node with that value, and places that node at the **_end_** of a linked list.
+The `insertEnd` method takes in a value, uses the Nd module to create a node with that value, and places that node at the **_end_** of a linked list.
 
 ```javascript
 let list = new SLL();
@@ -32,7 +32,7 @@ let b = list.insertEnd(1).insertEnd(2);
 console.log(b); // {head: {value: 1, next: { value: 2, next: null}}}
 ```
 
-The reverse method reverses the order of the linked list, this has an arity of 0 as it references `this` for the nodes in the linked list.
+The `reverse` method reverses the order of the linked list, this has an arity of 0 as it references `this` for the nodes in the linked list.
 
 ```javascript
 let list = new SLL();
@@ -40,7 +40,7 @@ let c = list.insertEnd(1).insertEnd(2).reverse();
 console.log(c); // {head: {value: 2, next: { value: 1, next: null}}}
 ```
 
-The remove method has an arity of 1, it takes in a number as the argument, removes that node from the list and reassigns the previous node to reference the next node from the one that was removed.
+The `remove` method has an arity of 1, it takes in a number as the argument, removes that node from the list and reassigns the previous node to reference the next node from the one that was removed.
 
 ```javascript
 let list = new SLL();
@@ -48,7 +48,7 @@ let d = list.insertEnd(1).insertEnd(2).remove(2);
 console.log(d); // {head: {value: 1, next: null}}
 ```
 
-The findNthNodeFromEnd method has an arity of 1, it takes in a number as an argument, reverses the list, moves to the next node n times, assigns nth node to a variable, reverses the list back to it's original order, and returns the nth node.
+The `findNthNodeFromEnd` method has an arity of 1, it takes in a number as an argument, reverses the list, moves to the next node n times, assigns nth node to a variable, reverses the list back to it's original order, and returns the nth node.
 
 ```javascript
 let list = new SLL();
@@ -73,4 +73,4 @@ sll.insertHead('hello');
 
 ### Testing
 
-To run the tests for the data structures, type `nmp run test` in your terminal. 
+To run the tests for the data structures, type `nmp run test` in your terminal.
