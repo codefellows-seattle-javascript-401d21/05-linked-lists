@@ -41,13 +41,17 @@ class SLL {
   remove(offset) {
     let prev;
     let current = this.head;
-    for(var i = 0; i <= offset + 1; i++) {
+    if (offset === 0) {
+      this.head = this.head.next;
+    }
+    for(var i = 0; i <= offset; i++) {
+      // console.log('current',current);
     //   console.log('offset',offset);
     //   console.log('i + 1',i + 1);
       prev = current;
-    //   console.log('prev',prev);
+      //   console.log('prev',prev);
       current = current.next;
-    //   console.log('current',current);
+      //   console.log('current',current);
       if (i  === offset - 1 ) {
         // console.log('offset - 1 ',offset - 1);
         // console.log('i',i);
@@ -64,9 +68,10 @@ let list = new SLL;
 
 list.insertEnd(1);
 list.insertEnd(2);
+list.insertEnd(3);
 // list.insertEnd(3);
 // list.insertEnd(4);
 // list.insertEnd(5);
-// console.log('before',list);
-list.reverse(1223);
+console.log('before',list);
+list.remove(0);
 console.log('after',list);
