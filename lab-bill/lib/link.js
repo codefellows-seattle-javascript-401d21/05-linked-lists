@@ -68,5 +68,5 @@ list.insertEnd(2);
 // list.insertEnd(4);
 // list.insertEnd(5);
 // console.log('before',list);
-list.reverse();
+list.reverse(1223);
 console.log('after',list);
