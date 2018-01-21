@@ -5,10 +5,9 @@ const Nd = require('./nd.js');
 class SLL {
   constructor() {
     this.head = null;
-    // this.listLength = 0;
   }
 
-  insertHead(val) {
+  insertHead(val) { // Big O: O(1), creates a node, no iteration
     if(!val) return null;
     let nd = new Nd(val);
     nd.next = this.head;
@@ -17,7 +16,7 @@ class SLL {
     return this;
   }
 
-  insertEnd(val) {
+  insertEnd(val) { // Big O: best case O(1) if no other node exists, worst case O(n), iterates to end of list before creating
     if(!val) return null;
     let nd = new Nd(val);
     if(!this.head) {
@@ -31,7 +30,7 @@ class SLL {
     return this;
   }
 
-  reverse() {
+  reverse() { //Big O: O(n), iterates through list once
     let curr, nxt, prev;
     curr = this.head; // points to head
     nxt = null; //represents next node
@@ -53,7 +52,7 @@ class SLL {
     return this;
   }
 
-  remove(offset) {
+  remove(offset) { //Big O: O(n), iterates through list once
     //invalid if no offset
     if(!offset) return null;
     //invalid typeof offset
@@ -82,24 +81,23 @@ class SLL {
     }
   }
 
-  //****** not tested due to need to incorporate list counter in constructor, just here for stretch goal practice ************//
-  findNthNodeFromEnd(n) {
-
-    //invalid n arguments
-    if(!n) return null;
-    if(typeof n !== 'number') return null;
-    if(n > this.listLength || n < 0) return null;
-
-    //current starts at head node
+  findNthNodeFromEnd(n) { //Big O: O(3n), iterates through list 3 times
+    //invalid entries
+    if(n < 1 || typeof n !== 'number') return null;
+    //start at end of linked list
+    this.reverse();
+    //current node starts at last node in list
     let curr = this.head;
-    //x marks the spot, list length represents number of last node
-    let x = this.listLength - n;
-    //iterate through nodes until iterator equals x
-    for(let i = 1; i < x; i ++) {
-      //assign current node to next node
+    //for each node in list until n is reached
+    for(let i = 1; i < n; i ++) {
+      //reassign current node to next node, current will be n in final iteration
       curr = curr.next;
+      //if the next node does not exist, n is greater than list length
+      if(!curr) return 'this node does not exist';
     }
-    //iterator is now at x, this is the nth node from last
+    //reverse list again to be in original order
+    this.reverse();
+    //return current node representing n
     return curr;
   }
 }
