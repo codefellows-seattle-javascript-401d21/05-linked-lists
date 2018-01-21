@@ -13,26 +13,34 @@ The **SLL module** has a constructor for creating a new SLL. When an object is c
 
 The **insertHead method** takes in one argument, a value, and uses our Nd constructor to add a node to the head of our list. 
 
-```insertHead(1);
-console.log(list.head); // logs {value: 1, next: null}```
+```
+insertHead(1);
+console.log(list.head); // logs {value: 1, next: null}
+```
 
 The **insertEnd method** also takes in an argument and adds a node to the tail of our list.
 
-```insertEnd(2);
+```
+insertEnd(2);
 console.log(list.head.next); // logs {value: 2, next: null}
 console.log(list.tail); // logs the same thing as above
-console.log(list.head) // logs {value: 1, next: {value: 2, next: null}}```
+console.log(list.head) // logs {value: 1, next: {value: 2, next: null}}
+```
 
 The **reverseList method** reverses the order of the list, causing the tail node to become the head node and the head node to become the tail node.
 
-```insertEnd(3);
+```
+insertEnd(3);
 list.reverseList();
-console.log(this.head); // logs {value: 3, next: {value: 2, next: {value: 1, next: null}}};```
+console.log(this.head); // logs {value: 3, next: {value: 2, next: {value: 1, next: null}}};
+```
 
 The **remove method** removes the nth node from the beginning of the list. It takes in one argument, the offset, where an offset of 1 means the first node / head of the list. 
 
-```list.remove(3);
-console.log(list.head); // logs {value: 3, next: {value: 2, next: null}}```
+```
+list.remove(3);
+console.log(list.head); // logs {value: 3, next: {value: 2, next: null}}
+```
 
 The **findNthNodeFromEnd method** also takes in one argument, which is the offset from the end of the list. It returns the node found at the nth position from the end.
 
