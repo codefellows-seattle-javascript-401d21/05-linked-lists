@@ -38,7 +38,25 @@ class SLL {
     }
     this.head = prev;
   }
-
+  remove(offset) {
+    let prev;
+    let current = this.head;
+    for(var i = 0; i <= offset + 1; i++) {
+    //   console.log('offset',offset);
+    //   console.log('i + 1',i + 1);
+      prev = current;
+    //   console.log('prev',prev);
+      current = current.next;
+    //   console.log('current',current);
+      if (i  === offset - 1 ) {
+        console.log('offset - 1 ',offset - 1);
+        console.log('i',i);
+        console.log('prev',prev);
+        console.log('current',current);
+        prev.next = current.next;
+      }
+    }
+  }
 }
 module.exports = SLL;
 let list = new SLL;
@@ -49,5 +67,5 @@ list.insertEnd(3);
 list.insertEnd(4);
 list.insertEnd(5);
 console.log('before',list);
-list.reverse();
+list.remove(1);
 console.log('after',list);
