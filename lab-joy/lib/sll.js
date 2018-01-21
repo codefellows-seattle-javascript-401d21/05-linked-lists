@@ -8,6 +8,7 @@ class SLL {
         this.tail = null;
     }
 
+    // insertHead: Insertion time is O(1) as the node is inserted directly to the list and the only modification would be to the current head of the list, if any.
     insertHead(val) {
         let nd = new Nd(val, this.head);
         this.head = nd;
@@ -15,6 +16,7 @@ class SLL {
         return this;
     }
 
+    // insertEnd: Like the insertHead method, insertion time is also O(1).
     insertEnd(val) {
         let nd = new Nd(val);
         if (this.tail) this.tail.next = nd;
@@ -23,6 +25,7 @@ class SLL {
         return this;
     }
 
+    // reverseList: This method has a O(n) runtime as it iterates through the entire list once.
     reverseList() {
         let current = this.head, prev = null;
         this.tail = this.head;
@@ -41,6 +44,7 @@ class SLL {
         }
     }
 
+    // remove: This method has a Big O worst case runtime of O(n), as it iterates through the list until it reaches the offset.
     remove(offset) {
         if (!Number.isInteger(offset) || offset < 1) return null;
         let current = this.head;
@@ -68,6 +72,7 @@ class SLL {
         return this;
     }
 
+    // findNthNodeFromEnd: The runtime of this method is O(n). It iterates through the list three times - twice via the reverseList method and once to find the nth node.
     findNthNodeFromEnd(n) {
         if (!Number.isInteger(n) || n < 1) return null;
         this.reverseList();
