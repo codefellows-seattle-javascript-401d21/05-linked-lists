@@ -6,6 +6,7 @@ const Nd = require('./nd');
 class SLL {
   constructor() {
     this.head = null;
+    this.listLength = 0;
   }
 
   insertHead(val) {
@@ -13,6 +14,7 @@ class SLL {
 
     nd.next = this.head;
     this.head = nd;
+    this.listLength++;
     return this;
   }
 
@@ -21,25 +23,57 @@ class SLL {
 
     if (!this.head) {
       this.head = nd;
+      this.lLen++;
       return this;
     }
 
     for (var itr = this.head; itr.next; itr = itr.next);
     itr.next = nd;
+    this.listLength++;
     return this;
   }
 
-  remove() {
-
+  remove(rem) {
+    if(!rem) return null;
+    if(!rem === 1) {
+      this.head = this.head.next;
+      this.listLength --;
+      return this
+    }
+    let curNode = this.head, preNode = null;
+    for (var loc = 1; loc < rem; loc++) {
+      if (loc === rem) {
+        preNode.next = curNode.next;
+        this.listLength--;
+        return this;
+      }
+      preNode = curNode;
+      curNode = curNode.next;
+    }
   }
 
   reverse() {
-
+    let cur = this.head, pre = null, next = null;
+    this.head = null;
+    while(!this.head) {
+      cur.next? next = cur.next : next = null;
+      pre? cur.next = pre : cur.next = null;
+      pre = cur;
+      next? cur = next : this.head = cur;
+    }
+    return this;
   }
 
-  findNthNode() {
-
+  findNthNode(n) {
+    if(!n || typeof n != 'number') return null;
+    if(n > this.listLength || n < 1) return null;
+    let curNode = this.head; 
+    for (let i = 1; i < n; i++){
+      curNode =curNode.next;
+    }
+    return curNode;
   }
+
 } //this one closes class SLL
 
 module.exports = SLL;
