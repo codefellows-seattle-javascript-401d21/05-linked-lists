@@ -3,23 +3,21 @@
 const Nd = require('../lib/nd');
 
 class SLL {
-  constructor(val) {
+  constructor() {
     this.head = this;
-    this.value = val;
-    this.next = null;
   }
 
   insertHead(val) {
-    let node = new SLL(val);
+    let node = new Nd(val);
     node.next = this.head;
     this.head = node;
     return this;
   }
 
   insertEnd(val) {
-    let nd = new SLL(val);
+    let node = new Nd(val);
     if(!this.head) {
-      this.head = nd;
+      this.head = node;
       return this;
     }
     // for(var i = this.head; i.next; i = i.next);

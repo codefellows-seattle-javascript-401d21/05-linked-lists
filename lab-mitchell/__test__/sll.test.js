@@ -3,31 +3,25 @@
 const SLL = require('../lib/sll');
 
 describe('sll.js', () => {
+  let test = new SLL();
   it('new SLL constructor should create a new head node, with no value or next', (done) => {
-    let head = new SLL();
-    expect(head.head).toEqual(null);
-    expect(head.value).toEqual(undefined);
-    expect(head.next).toEqual(undefined);
+    expect(test.head).not.toBe(null);
     done();
   });
 
-  it('should ', (done) => {
-    let node = new SLL();
-    node.append(new SLL())
-
-    expect(node.head).toEqual(null);
+  it('should insert something in the head area oyoyooyaoy', (done) => {
+    let node = test.insertHead(5);
+    console.log(node);
+    expect(node).toEqual({head: { value: 5, next: null }});
     done();
   });
 
-  it('should ', (done) => {
-    let node = new SLL();
-    expect(node.head).toEqual(null);
-    done();
-  });
+  // it('should ', (done) => {
+  //   expect(test.insertEnd(10)).toEqual(null);
+  //   done();
+  // });
 
-  it('should ', (done) => {
-    let node = new SLL();
-    expect(node.head).toEqual(null);
-    done();
-  });
+  // it('should ', (done) => {
+  //   done();
+  // });
 });
