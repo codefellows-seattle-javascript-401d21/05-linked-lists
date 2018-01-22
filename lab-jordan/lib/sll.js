@@ -2,20 +2,22 @@
 
 const Node = require('./node.js')
 
-class SLL {
+module.exports = class SLL {
   constructor () {
     this.head = null; // on a new linked list, there needs to be a head pointer, but there still aren't any nodes
   }
 
   insertHead (value) { // O(1)
-    let newNode = new Node; // start by making a new node to add
+    if (value === null) return null; // if the input is null, return null
+    let newNode = new Node (value); // start by making a new node to add
     newNode.next = this.head; // place this node in front of the current head node
     this.head = newNode; // declare this node to be the head node now that it's in front
     return this; // return the linked list
   }
 
   insertEnd (value) { // O(1) -> O(n)
-    let newNode = new Node; // start by making a new node to add
+    if (value === null) return null; // if the input is null, return null
+    let newNode = new Node (value); // start by making a new node to add
     if (this.head === null) { // if there is no head node (the list is empty)...
       this.head = newNode; // set this node to be the head
       return this; // return the linked list
@@ -70,6 +72,7 @@ class SLL {
       length++; // add one to the length
       currentNode = currentNode.next; // look at the next node in sequence
     } // once you have reached the end of the list and know the length...
+    if (n > length) return null; // return null is n is not in the list
     currentNode = this.head; // go back to the beginning of the list
     let distance = length - n; // the distance needed to traverse is n from the end
     while (distance > 0) { // while distance still has a value
