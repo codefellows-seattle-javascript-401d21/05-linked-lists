@@ -5,70 +5,80 @@ const Nd = require('./nodeBuilder');
 
 
 class SLL {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
+  constructor() {
+    this.head = null;
   }
 
-  insertHead(val) {
+  insertHead(val) { //Big O is O(1). goes right to the front of the line
     if (!val) return null;
-    let newHead = new Nd(val);
-    this.next = newHead;
-    newHead.head = this;
+    let nd = new Nd(val);
+    nd.next = this.head;
+    this.head = nd;
     return this;
   }
 
-  insertEnd(val){
+  insertEnd(val) { //Big O is O(1) if just one Node, or O(n) if it has to iterates to find end.
     if (!val) return null;
     let nd = new Nd(val);
-    if(!this.next) {
-      this.next = nd;
-    } else {
+    if(!this.head) {
+      this.head = nd;
       return this;
     }
+    for(var itr = this.head; itr.next; itr = itr.next);
+    itr.next = nd;
+    return this;
   }
 
-  reverseSLL(arr) {
-    if (!arr) return undefined;
-    var node = arr;
-    var lastOne = null;
+  reverseSLL() { //Big O is O(n). has to iterate over all of it.
+    let current, next, prev;
+    current = this.head;
+    next = null;
+    prev = null;
+    this.head = null;
 
-    while(node) {
-      // save next or you lose it!!!
-      var save = node.next;
-      // reverse pointer
-      node.next = lastOne;
-      // increment lastOne to current node
-      lastOne = node;
-      // increment node to next node or null at end of list
-      node = save;
+    while (!this.head) {
+      if (current.next) {
+        next = current.next;
+      } else {
+        next = null;
+      }
+
+      if (prev) {
+        current.next = prev;
+      } else {
+        current.next = null;
+      }
+
+      prev = current;
+
+      if (next) {
+        current = next;
+      } else {
+        this.head = current;
+      }
     }
-    return lastOne;
+
+    return this;
   }
 
-  removeSLL(index) {
-    if (!index) return undefined;
-    var current = this.head;
-    //case-1
-    if(current.value == index){
-      this.head = current.next;
+  removeSLL(index) { //Big O of O(n). has to iterates of the SLL to fine that index.
+    if(!index || typeof index !== 'number') return null;
+    if(index === 1) {
+      this.head = this.head.next;
+      return this;
     }
-    else{
-      var previous = current;
-
-      while(current.next){
-        //case-3
-        if(current.value == index){
-          previous.next = current.next;
-          break;
+    let current = this.head, prev;
+    for(var itr = 1; itr <= index; itr++) {
+      if (itr === index) {
+        if (current.next) {
+          prev.next = current.next;
+        } else {
+          prev.next = null;
         }
-        previous = current;
-        current = current.next;
+        return this;
       }
-      //case -2
-      if(current.value == index){
-        previous.next == null;
-      }
+      prev = current;
+      current = current.next;
     }
   }
 }
