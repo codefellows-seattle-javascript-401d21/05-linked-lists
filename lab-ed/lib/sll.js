@@ -8,6 +8,7 @@ class SLL {
   }
 
   insertHead(val) {
+    // O(1)
     let nd = new Nd(val)
     nd.next = this.head
     this.head = nd
@@ -15,6 +16,7 @@ class SLL {
   }
 
   insertEnd(val) {
+    // O(1)
     let nd = new Nd(val)
     if(!this.head) {
       this.head = nd
@@ -26,14 +28,11 @@ class SLL {
   }
 
   remove(offset) {
+    // O(log n)
     if (!offset) return null
-    if (offset === 0) return null
+    if (offset < 2) return null
     if (this.head.next === null) return null
     
-    if(offset === 1) { 
-      this.head = this.head.next
-      return this
-    }
     let thisOne = this.head
     let lastOne
     for(var itr = 1; itr <= offset; itr++) {
@@ -51,6 +50,7 @@ class SLL {
   }
 
   reverse() {
+    // O(log n)
     if (this.head.next === null) return null
     
     let thisOne = this.head
