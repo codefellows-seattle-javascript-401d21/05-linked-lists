@@ -1,0 +1,21 @@
+{
+  "name": "lab-heath",
+  "version": "1.0.0",
+  "description": "we need to build a function that reads an array of files and have them Execute in order and have them place in a array in the order they where called.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^22.1.2"
+  },
+  "dependencies": {
+    "eslint": "^4.15.0"
+  }
+}
