@@ -29,6 +29,7 @@ class SLL {
     if (!offset) return null
     if (offset === 0) return null
     if (this.head.next === null) return null
+    
     if(offset === 1) { 
       this.head = this.head.next
       return this
@@ -48,10 +49,34 @@ class SLL {
       thisOne = thisOne.next
     }
   }
+
+  reverse() {
+    if (this.head.next === null) return null
+    
+    let thisOne = this.head
+    this.head = null
+    let next = null
+    let lastOne = null
+    
+    while (!this.head) {
+      if (thisOne.next) {
+        next = thisOne.next
+      } else {
+        next = null
+      }
+      if (lastOne) {
+        thisOne.next = lastOne
+      } else {
+        thisOne.next = null
+      }
+      lastOne = thisOne
+      if (next) {
+        thisOne = next
+      } else {
+        this.head = thisOne
+      }
+    }
+    return this
+  }
 }
-
-//   reverse() {
-  
-// }
-
 module.exports = SLL
