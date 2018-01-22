@@ -1,0 +1,18 @@
+{
+  "name": "lab-05",
+  "version": "1.0.0",
+  "description": "Lab 05 SSL reverse, insert end, insert head, delete ",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "author": "rnd",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "jest": "^22.1.4"
+  }
+}
