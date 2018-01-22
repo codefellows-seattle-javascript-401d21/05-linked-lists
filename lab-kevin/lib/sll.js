@@ -32,10 +32,11 @@ class SLL {
   }
 
   reverse() {
-    let i = 0;
+    //if this head is null then there is nothing to reverse
+    if(!this.head) return this;
+    let curr_node;
     let next_node = this.head;
     let prev = null;
-    let curr_node;
     while(next_node){
       curr_node = next_node;
       next_node = next_node.next;
@@ -46,25 +47,44 @@ class SLL {
     return this;
   }
 
-  remove(offset) {
-    let node = this.head;
-    let prev;
-    while (offset) {
-      prev = node;
-      node = node.next;
-      offset--;
-    }
-    prev.next = node.next;
-    return  prev;
-  }
 
-  findNthNodeFromEnd(n) {
-    let i = 0;
-    let curr_node;
-    for(var next_node = this.head; next_node.next; next_node = next_node.next){
-      if(! (i % n)) curr_node = next_node;
+  remove(offset) {
+    if ( !offset || typeof offset !== 'number' ) return null;
+    let cur_node = this.head;
+    let prev_node = cur_node;
+    let i = 1;
+
+    //if the offset is 1 then reset the head to next
+    if (offset === 1) {
+      this.head = prev_node.next;
+      return this;
+    }
+
+    //connect the previous and next when the off set is found
+    while(cur_node){
+      if( offset === i ){
+        prev_node.next = cur_node.next;
+        this.head = prev_node;
+        return this;
+      } 
+      prev_node = cur_node; 
+      cur_node = cur_node.next;
       i++;
     }
+    return null;
+  }
+
+
+  findNthNodeFromEnd(n) {
+    if( typeof n !== 'number' ) return null;
+    let i = 0;
+    let curr_node = this.head;
+    for(let next_node = this.head; next_node.next; next_node = next_node.next){
+      if((i > n)) curr_node = curr_node.next;
+      i++;
+    }
+    curr_node = curr_node.next;
+    if(i < n) curr_node = null;
     this.head = curr_node;
     return this;
   }

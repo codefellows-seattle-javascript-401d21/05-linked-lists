@@ -49,23 +49,77 @@ describe('#ssl tests' ,() => {
   });
 
   describe('#ssl reverse', () =>{
-    var node;
     let linkList = new SLL();
     it('Should reverse a link list', () => {
       let end = 9;
       [...Array(end + 1)].forEach((val, i) => linkList.insertEnd(i));
-      for(node = linkList.head; node.next; node = node.next);
-      expect(node.value).toEqual(end);
+      linkList.reverse();
+      expect(linkList.head.value).toEqual(end);
+    });
+
+    it('Should reverse a short link list', () => {
+      let end = 1;
+      [...Array(end + 1)].forEach((val, i) => linkList.insertEnd(i));
+      linkList.reverse();
+      expect(linkList.head.value).toEqual(end);
+    });
+
+    it('Should return link list as is when reversing a link list when it is a new instance', () => {
+      let linkList = new SLL();
+      linkList.reverse();
+      expect(linkList.head).toEqual(null);
     });
   });
 
-  describe('#ssl findNthNodeFromEnd', () =>{
-    let linkList = new SLL();
-    [...Array(10)].forEach((val, i) => linkList.insertEnd(i));
-    console.log('begin findNthNodeFromEnd', linkList);
-    it('Should reverse a link list', () => {
-      expect(linkList.findNthNodeFromEnd(5)).toBeInstanceOf(Object);
-      console.log('findNthNodeFromEnd', linkList);
+  describe('#sll remove', () => {
+    it('should remove the node at the offset', () => {
+      let linkList = new SLL();
+      let end = 2;
+      [...Array(end + 1)].forEach((val, i) => linkList.insertEnd(i));
+      linkList.remove(2);
+      expect(linkList.head.next.value).not.toEqual(1);
     });
+    
+    it('should remove should return null if the offset is not a number', () => {
+      let linkList = new SLL();
+      expect(linkList.remove('x')).toBeNull();
+    });
+
+    it('Should return null if the given offset is out of range', () => {
+      let linkList = new SLL();
+      let end = 3;
+      [...Array(end + 1)].forEach((val, i) => linkList.insertEnd(i));
+      linkList.remove(5);
+      expect(linkList.remove(5)).toBeNull();
+    });
+
+  });
+
+  describe('#sll findNthNodeFromEnd', () => {
+
+    it('Should return null if the given offset is not a number', () => {
+      let linkList = new SLL();
+      linkList.findNthNodeFromEnd(null);
+      expect(linkList.head).toBeNull();
+    });
+ 
+    it('Should return null if the given offset is out of range', () => {
+      let linkList = new SLL();
+      let end = 9;
+      [...Array(end + 1)].forEach((val, i) => linkList.insertEnd(i));
+      let n = 14;
+      linkList.findNthNodeFromEnd(n);
+      expect(linkList.head).toBeNull();
+    });
+
+    it('Should find the node at a given offset from the end of a link list', () => {
+      let linkList = new SLL();
+      let end = 9;
+      [...Array(end + 1)].forEach((val, i) => linkList.insertEnd(i));
+      let n = 4;
+      linkList.findNthNodeFromEnd(n);
+      expect(linkList.head.value).toEqual(end - n);
+    });
+
   });
 });
