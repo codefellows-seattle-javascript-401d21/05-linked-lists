@@ -1,0 +1,19 @@
+{
+  "name": "05-linked-lists",
+  "version": "1.0.0",
+  "description": "day 5 lab working with linked lists",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint"
+  },
+  "author": "Karen Perez",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "jest": "^22.1.4"
+  }
+}
