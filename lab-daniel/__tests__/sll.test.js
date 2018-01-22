@@ -10,7 +10,7 @@ describe('SLL Constructor', function () {
   describe('#SLL', function () {
     it('Should be a valid instance of an SLL object', function () {
       expect(test1).toBeInstanceOf(SLL);
-      expect(test1).toBeInstanceOf(SLL);      
+      expect(test2).toBeInstanceOf(SLL);      
     });
     it('Should initialize "head" as "null"', function () {
       expect(test1.head).toBeNull();
