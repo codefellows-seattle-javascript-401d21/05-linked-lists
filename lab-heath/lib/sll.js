@@ -61,7 +61,7 @@ class SLL {
     return this;
   }
 
-  removeSLL(index) { //Big O of O(n). has to iterates of the SLL to fine that index.
+  removeNode(index) { //Big O of O(n). has to iterates of the SLL to fine that index.
     if(!index || typeof index !== 'number') return null;
     if(index === 1) {
       this.head = this.head.next;
