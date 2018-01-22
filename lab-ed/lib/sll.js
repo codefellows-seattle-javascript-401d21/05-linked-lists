@@ -30,7 +30,7 @@ class SLL {
   remove(offset) {
     // O(log n)
     if (!offset) return null
-    if (offset === 0) return null
+    if (offset < 2) return null
     if (this.head.next === null) return null
     
     let thisOne = this.head
