@@ -8,6 +8,8 @@ class SLL {
   }
 
   insertHead(val) {
+    //if val is undefined then return null
+    if(val === undefined) return null;
     let nd = new Nd(val);
     nd.next = this.head;
     this.head = nd;
@@ -15,16 +17,17 @@ class SLL {
   }
 
   insertEnd(val) {
+    //if val is undefined then return null
+    if(val === undefined) return null;
     let nd = new Nd(val);
     //if this.head is undefined, set the new node to the head
     if(!this.head) {
       this.head = nd;
       return this;
     }
-
     //iterate the link list unto]il you find the end and addd the node
-    for(var itr = this.head; itr.next; itr = itr.next);
-    itr.next = nd;
+    for(var node = this.head; node.next; node = node.next);
+    node.next = nd;
     return this;
   }
 
