@@ -77,7 +77,6 @@ class SLL {
     for (let i = 1; i < nLoc; i++) {
       curNode = curNode.next;
     }
-    console.log(curNode);
     return curNode;
   }
 }
