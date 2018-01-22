@@ -2,13 +2,13 @@
 
 const Nd = require('./nd');
 // import Nd from './nd'
-
+//this is the constructor
 class SLL {
   constructor() {
     this.head = null;
-    this.listLength = 0;
+    this.listLength = 0; //this keeps count of the lenght of the node list
   }
-
+  //inserts starting in first node
   insertHead(val) {
     let nd = new Nd(val);
 
@@ -18,12 +18,13 @@ class SLL {
     return this;
   }
 
+  //inserts at the end 
   insertEnd(val) {
     let nd = new Nd(val);
 
     if (!this.head) {
       this.head = nd;
-      this.lLen++;
+      this.listLength++;
       return this;
     }
 
@@ -38,7 +39,7 @@ class SLL {
     if(!rem === 1) {
       this.head = this.head.next;
       this.listLength --;
-      return this
+      return this;
     }
     let curNode = this.head, preNode = null;
     for (var loc = 1; loc < rem; loc++) {
