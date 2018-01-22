@@ -20,7 +20,7 @@ describe ('Solution Module', () => {
   // });
   describe ('SLL', () => {
     it ('should check for an object', () => {
-      expect (list1.insertHead(25).insertEnd(1)).toBeInstanceOf(Object);
+      expect (list1.insertHead(25).insertEnd(1).insertEnd()).toBeInstanceOf(Object);
     });
     // it ('should check for an object that has a property', () => {
     //   expect (list.)

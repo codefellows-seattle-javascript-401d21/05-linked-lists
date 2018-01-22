@@ -28,9 +28,12 @@ class SLL {
     return this;
   }
 
-  remove(val) {
+  remove(offset) {
+    let nd = new Nd(val);
+
     if (this.head.value === val) {
       this.head = this.head.next;
+      return this;
     } else {
       let preNd = this.head;
       let curNd = preNd.next;
@@ -47,10 +50,21 @@ class SLL {
       }
     }
   }
-
-  findNthNode() {
-
+  
+  reverse(val) {
+    let nd = new Nd(val);
+        
+    while(nd) {
+      if(thisNode.value === val) {
+        return thisNode;
+      }
+        
+      thisNode = thisNode.next;
+    }
+    
+    return thisNode;
   }
+
 }
 
 var list = new SLL();
