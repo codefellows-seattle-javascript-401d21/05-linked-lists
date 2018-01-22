@@ -6,5 +6,5 @@ class Node {
     this.next = null;
   }
 }
-
+// Big-O run time: O(1)
 module.exports = Node;
