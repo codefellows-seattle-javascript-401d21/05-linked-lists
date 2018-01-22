@@ -42,15 +42,6 @@ describe('Sll Module', function() {
   })
   describe('#remove', function() {
     let sll = new SLL()
-    sll.insertHead('n1')
-    sll.insertHead('n2')
-    sll.remove(1)
-    it('should remove the n2 object at head', function() {
-      expect(sll.head.value).toEqual('n1')
-    })
-  })
-  describe('#remove', function() {
-    let sll = new SLL()
     it('should return null for no argument passed', function() {
       expect(sll.remove()).toBe(null)  
     })
