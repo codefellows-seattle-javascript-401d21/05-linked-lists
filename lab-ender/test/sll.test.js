@@ -19,10 +19,10 @@ describe(`SLL`, function() {
       sllWithHead.insertHead();
       expect(sllWithHead.head).toBeNull();
     });
-    it(`should add .head of null if argument not a number`, () => {
+    it(`should be unchanged if argument not a number`, () => {
       const sllWithHead = new SLL;
       sllWithHead.insertHead('not numerical');
-      expect(sllWithHead.head).toBeNull();
+      expect(sllWithHead).toBe(sllWithHead);
     });
     it(`should set .head to node with the .value of value input`, () => {
       const sllWithHead = new SLL;
@@ -34,19 +34,19 @@ describe(`SLL`, function() {
     it(`should set .head to null, if .head is null and there is no input`, () => {
       const sllWithEnd = new SLL;
       sllWithEnd.insertEnd();
-      expect(sllWithEnd.head.next).toBeNull();
+      expect(sllWithEnd.head).toBeNull();
     });
     //it should set .next to null, if .head is not null and there is no input
     it(`should set .head to null, if .head is null and input is not a number`, () => {
       const sllWithEnd = new SLL;
       sllWithEnd.insertEnd('not numerical');
-      expect(sllWithEnd.head.next).toBeNull();
+      expect(sllWithEnd.head).toBeNull();
     });
     // it should set .next to null if .head is not null and input is not a number
     it(`should set .head to the value input, if .head is null`, () => {
       const sllWithEnd = new SLL;
       sllWithEnd.insertEnd(5);
-      expect(sllWithEnd.head.next).toBe(5);
+      expect(sllWithEnd.head.value).toBe(5);
     });
     it(`should set .head.next.value to value, if input is numerical, and .head.next is not null`, () => {
       const sllWithHeadAndEnd = new SLL;
@@ -55,7 +55,7 @@ describe(`SLL`, function() {
         next: null
       };
       sllWithHeadAndEnd.insertEnd(3);
-      expect(sllWithHeadAndEnd.head.next.value);
+      expect(sllWithHeadAndEnd.head.value);
     });
   });
   describe(`# reverse()`, () => {
@@ -67,10 +67,10 @@ describe(`SLL`, function() {
     });
   });
   describe(`# remove(offset)`, () => {
-    it(`should return null if offset is not a number`, () => {
+    it(`should not change if offset is not a number`, () => {
       const sll = new SLL;
       sll.head = { value: 1, next: { value: 2, next: null } }
-      expect(sll('string')).toBeNull();
+      expect(sll.remove('string')).toBe(sll);
     });
     it(`should remove the nth node`, () => {
       const sll = new SLL;
@@ -78,10 +78,11 @@ describe(`SLL`, function() {
       sll.remove(0);
       expect(sll).toEqual( { head: { value: 1, next: { value: 2, next: null } } } );
     });
-    it(`should return null if offset is greater than the count of nodes`, () => {
+    it(`should not change if offset is greater than the count of nodes`, () => {
       const sll = new SLL;
+      sll.head = { value: 3, next: { value: 2, next: null } };
       sll.remove(99);
-      expect(sll).toBeNull();
+      expect(sll).toBe(sll);
     });
   });
 });
