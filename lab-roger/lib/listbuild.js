@@ -46,43 +46,32 @@ class NewList {
     return this;
 
   }
-  // reverse() {
-  //   if(!this.head) {
-  //     return this;
-  //   }
-  //
-  //   let currentNode = this.head;
-  //   let previous = null;
-  //
-  //   while(currentNode) {
-  //     let saved;
-  //     console.log('_____________________');
-  //     if(currentNode.next != null) {
-  //       let saved = currentNode.next;
-  //     } else {
-  //       saved = currentNode;
-  //     }
-  //     console.log('saved', saved)
-  //     currentNode.next = previous;
-  //     console.log('current.next', currentNode.next);
-  //     previous = currentNode;
-  //     console.log('previous', previous);
-  //     currentNode = saved;
-  //     console.log('currentNode', currentNode);
-  //     console.log('___________________');
-  //
-  //   }
-  //
-  //   return this;
-  //
-  // }
+  reverse() {
+
+    let prev = null;
+    let current = this.head;
+    let saved;
+    while (current.next != null) {
+      saved = current.next;
+      current.next = prev;
+      prev = current;
+      current = saved;
+    }
+    current.next = prev;
+    this.head = current;
+    return this;
+
+  }
   removeOffSet(offSet) {
-    if(!offSet) return null;
+    console.log('inside removeoffset', offSet);
+    if(!arguments.length) return null;
     if(!this.head) {
       return this;
     }
     let currentNode = this.head;
-    if (offSet === 0) {
+
+
+    if(offSet === 0) {
       this.head = currentNode.next;
       return this;
     }
