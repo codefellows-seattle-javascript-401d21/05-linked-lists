@@ -22,38 +22,31 @@ class SLL {
     itr.next = nd;
     return this;
   }
-  // remove(offset) {
-  //   var curNd = this.head, count=0, prev;
-  //   if(this._length===0) return;
-  //   if(offset===0){
-  //     this.head = curNd.next;
-  //     this._length--;
-  //   }else{
-  //     while(count<offset-1){
-  //       prev = curNd;
-  //       curNd = curNd.next;
-  //       count++;
-  //     }
-  //     prev.next = curNd.next;
-  //     this._length--;
-  //     return this.head;
-  //   }
-  // }
-  // reverse(head) {
-  //   var result = null;
-  //   var stack = [];
-  //   var curNd = head;
-  //   while (curNd) {
-  //     stack.push(curNd);
-  //     curNd = curNd.next;
-  //   }
-  //   result = stack.pop() || [];
-  //   curNd = result;
-  //   while (curNd) {
-  //     curNd.next = stack.pop();
-  //     curNd = curNd.next;
-  //   }
-  // }
+  remove(offset) {
+    let curr = this.head;
+    let prev = null;
+    while(offset !== 0){
+      offset--;
+      prev = curr;
+      curr = curr.next;
+    }
+    prev.next = curr.next;
+    curr.next = null;
+    return this;
+  }
+  reverse() {
+    let curr = this.head;
+    let prev = null;
+    let next = null;
+    while(curr) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+    return this;
+  }
 }
 
 module.exports = SLL;
