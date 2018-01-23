@@ -1,0 +1,24 @@
+{
+  "name": "05-linked-lists",
+  "version": "1.0.0",
+  "description": "![cf](http://i.imgur.com/7v5ASc8.png) lab 10 - Singly Linked List Data Structure\r ====",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnderSmith/05-linked-lists.git"
+  },
+  "author": "EnderSmith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnderSmith/05-linked-lists/issues"
+  },
+  "homepage": "https://github.com/EnderSmith/05-linked-lists#readme",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "jest": "^22.1.4"
+  }
+}
