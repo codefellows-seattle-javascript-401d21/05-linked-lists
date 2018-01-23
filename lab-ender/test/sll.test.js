@@ -75,7 +75,7 @@ describe(`SLL`, function() {
     it(`should remove the nth node`, () => {
       const sll = new SLL;
       sll.head = { value: 0, next: { value: 1, next: { value: 2, next: null } } };
-      sll.remove(1);
+      sll.remove(0);
       expect(sll).toEqual( { head: { value: 1, next: { value: 2, next: null } } } );
     });
     it(`should return null if offset is greater than the count of nodes`, () => {
