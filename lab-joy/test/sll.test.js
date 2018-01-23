@@ -69,8 +69,8 @@ describe('#SLL', () => {
         list2.insertEnd(1);
         list2.remove(1);
     
-        expect(list.head.value).toBeNull();
-        expect(list.tail.value).toBeNull();
+        expect(list2.head).toBeNull();
+        expect(list2.tail).toBeNull();
     });
 
     it('should be able to find the nth node from the end', () => {
