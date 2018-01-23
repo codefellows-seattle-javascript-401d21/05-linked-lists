@@ -6,6 +6,8 @@ class SLL {
   constructor (){
     this.head = null;
     this.lLen = 0;
+    return this;
+    // Big O Notation: O(1) All Cases
   }
   insertHead (val) {
     let nd = new Nd(val);
@@ -13,6 +15,7 @@ class SLL {
     this.head = nd;
     this.lLen++;
     return this;
+    // Big O Notation: O(1) All Cases
   }
 
   insertTail (val) {
@@ -22,12 +25,14 @@ class SLL {
       this.head = nd;
       this.lLen++;
       return this;
+      // Big O Notation: O(1) Best Case
     }
 
     for (var itr = this.head; itr.next; itr = itr.next);
     itr.next = nd;
     this.lLen++;
     return this;
+    // Big O Notation: O(n) Worst Case
   }
   remove (rem) {
     if (!rem) return null;
@@ -35,6 +40,7 @@ class SLL {
       this.head = this.head.next;
       this.lLen--;
       return this;
+      // Big O Notation: O(1) Best Case
     }
     let curNode = this.head, preNode = null;
     for (var loc = 1; loc <= rem; loc++) {
@@ -42,6 +48,7 @@ class SLL {
         preNode.next = curNode.next;
         this.lLen--;
         return this;
+        // Big O Notation: O(n) Worst Case
       }
       preNode = curNode;
       curNode = curNode.next;
@@ -58,6 +65,7 @@ class SLL {
       next? cur = next : this.head = cur;
     }
     return this;
+    // Big O Notation: O(n) All Cases
   }
 
   findNthNode(n) {
@@ -68,6 +76,7 @@ class SLL {
       curNode = curNode.next;
     }
     return curNode;
+    // Big O Notation: O(n) All Cases
   }
 
   findNthFromLastNode(n) {
@@ -78,6 +87,7 @@ class SLL {
       curNode = curNode.next;
     }
     return curNode;
+    // Big O Notation: O(n) All Cases
   }
 }
 
