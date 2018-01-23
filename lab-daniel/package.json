@@ -1,0 +1,36 @@
+{
+  "name": "lab-daniel",
+  "version": "0.0.0",
+  "description": "lab 05 linked lists Adv. JS 401",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "jest" : {
+    "verbose": true,
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "keywords": [
+    "jest",
+    "linked-lists",
+    "datastructures"
+  ],
+  "author": "Daniel Logerstedt",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.1.4"
+  }
+}
