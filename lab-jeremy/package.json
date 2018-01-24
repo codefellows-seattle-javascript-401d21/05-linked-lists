@@ -1,0 +1,26 @@
+{
+  "name": "lab-jeremy",
+  "version": "1.0.0",
+  "description": "SLL single linked list test jest",
+  "main": "sll.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^22.1.4"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "SLL",
+    "single",
+    "linked",
+    "list",
+    "test",
+    "jest"
+  ],
+  "author": "Jeremy Pearson",
+  "license": "MIT"
+}
