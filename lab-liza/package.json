@@ -1,0 +1,17 @@
+{
+  "name": "lab-liza",
+  "version": "1.0.0",
+  "description": "00-linked-lists",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Liza",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.1.4"
+  }
+}
