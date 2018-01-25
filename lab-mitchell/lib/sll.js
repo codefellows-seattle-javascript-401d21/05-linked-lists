@@ -4,25 +4,29 @@ const Nd = require('../lib/nd');
 
 class SLL {
   constructor() {
-    this.head = this;
+    this.head = null;
   }
 
+  //O(1)
   insertHead(val) {
+    if(typeof val !== 'number') return 'ERROR: non-numerical input';
     let node = new Nd(val);
     node.next = this.head;
     this.head = node;
     return this;
   }
-
+  
+  //O(1?)
   insertEnd(val) {
+    if (typeof val !== 'number') return 'ERROR: non-numerical input';
     let node = new Nd(val);
     if(!this.head) {
       this.head = node;
       return this;
     }
-    // for(var i = this.head; i.next; i = i.next);
-    // i.next = nd;
-    // return this;
+    for(var i = this.head; i.next; i = i.next);
+    i.next = node;
+    return this;
   }
 
   //O(n)

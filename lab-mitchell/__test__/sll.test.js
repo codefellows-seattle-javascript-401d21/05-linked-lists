@@ -3,17 +3,47 @@
 const SLL = require('../lib/sll');
 
 describe('sll.js', () => {
-  let test = new SLL();
-  it('new SLL constructor should create a new head node, with no value or next', (done) => {
-    expect(test.head).not.toBe(null);
-    done();
+  describe('sll.insertHead()', function() {
+    let test = new SLL();
+    
+    it('should insert node directly after head, with next of null', (done) => {
+      test.insertHead(5);
+      expect(test).toEqual({head: { value: 5, next: null}});
+      done();
+    });
+
+    it('should insert something before the previously node with a value of 5 created earlier, with next equal to the previously created node', (done) => {
+      test.insertHead(2);
+      expect(test).toEqual({head: { value: 2, next: { value: 5, next: null}}});
+      done();
+    });
+
+    it('should return a descriptive error string with non-numerical input', (done) => {
+      expect(test.insertHead('three')).toEqual('ERROR: non-numerical input');
+      done();
+    });
   });
 
-  it('should insert something in the head area oyoyooyaoy', (done) => {
-    let node = test.insertHead(5);
-    console.log(node);
-    expect(node).toEqual({head: { value: 5, next: null }});
-    done();
+  describe('sll.insertEnd()', function() {
+    let test = new SLL();
+
+    it('should insert node at end of list, with given value and next of null', (done) => {
+      test.insertEnd(20);
+      expect(test).toEqual({ head: { value: 20, next: null } });
+      done();
+    });
+
+    it('should insert node at end of list, with given value and next of null', (done) => {
+      test.insertEnd(40);
+      
+      expect(test).toEqual({ head: { value: 20, next: { value: 40, next: null}}});
+      done();
+    });
+
+    it('should return a descriptive error string with non-numerical input', (done) => {
+      expect(test.insertEnd('six')).toEqual('ERROR: non-numerical input');
+      done();
+    });
   });
 
   // it('should ', (done) => {
