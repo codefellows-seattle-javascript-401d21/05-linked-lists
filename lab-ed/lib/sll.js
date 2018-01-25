@@ -28,7 +28,7 @@ class SLL {
   }
 
   remove(offset) {
-    // O(log n)
+    // O(n)
     if (!offset) return null
     if (offset < 2) return null
     if (this.head.next === null) return null
@@ -50,7 +50,7 @@ class SLL {
   }
 
   reverse() {
-    // O(log n)
+    // O(n)
     if (this.head.next === null) return null
     
     let thisOne = this.head
