@@ -46,33 +46,18 @@ class SLL {
       return {head: result};
     }
   }
-}
+
   //O(n)
-//   remove(head, offset) {
-//     if (offset === 0) return head.next;
+  remove(offset) {
+    if(!this.head) return this;
 
-//     head.next = remove(head.next, offset - 1);
-//     return head;
+    //dissociating object from this list, hey previous your next is now the next value right here
 
-//     if(!this.next) {
-//       return this;
-//     }
+    for(let i = -1; i < offset; i++) {
+      this.head = this.head.next;
+    }
+    return;
+  }
+}
 
-//     if(this === val) {
-//       this.value = this.next.value;
-//       this.next = this.next.next;
-//     } else if (this.next === val) {
-//       this.next = this.next.next;
-//     } else {
-//       this.next.remove(val);
-//     }
-//     return this;
-//   }
-// }
-
-// Node Delete(Node head, int position) {
-//   if (position == 0) { return head.next; }
-//   head.next = Delete(head.next, position - 1);
-//   return head;
-// }
 module.exports = SLL;

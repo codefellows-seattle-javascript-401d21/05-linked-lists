@@ -55,7 +55,7 @@ describe('sll.js', () => {
       done();
     });
     
-    it('should return ', (done) => {
+    it('should return error message with singly linked list of only one node', (done) => {
       expect(test3.insertEnd(1).reverse()).toEqual('ERROR: Empty or single element linked list, nothing to reverse');
       done();
     });
@@ -66,13 +66,14 @@ describe('sll.js', () => {
     });
   });
 
-  // describe('sll.delete()', function() {
-  //   let test = new SLL().insertHead(1).insertEnd(2).insertEnd(3);
+  describe('sll.delete()', function() {
+    let test = new SLL().insertHead(1).insertEnd(2).insertEnd(3);
 
-  //   it('should', function(done) {
-  //     expect(test.remove(2)).toEqual({ head: { value: 1, next: { value: 3, next: null}}});
-  //     done();
-  //   });
+    it('should', function(done) {
+      test.remove(2);
+      expect(test).toEqual({ head: { value: 1, next: { value: 3, next: null}}});
+      done();
+    });
 
     // it('should', function(done) {
 
@@ -84,13 +85,4 @@ describe('sll.js', () => {
     //   done();
     // });
   });
-
-  // it('should ', (done) => {
-  //   expect(test.insertEnd(10)).toEqual(null);
-  //   done();
-  // });
-
-  // it('should ', (done) => {
-  //   done();
-  // });
-// });
+});
