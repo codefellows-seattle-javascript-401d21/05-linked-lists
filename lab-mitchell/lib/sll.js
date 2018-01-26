@@ -16,7 +16,7 @@ class SLL {
     return this;
   }
   
-  //O(1?)
+  //O(n)
   insertEnd(val) {
     if (typeof val !== 'number') return 'ERROR: non-numerical input';
     let node = new Nd(val);
@@ -31,37 +31,48 @@ class SLL {
 
   //O(n)
   reverse() {
-    if(!this.head || this.head.next) {
-      return 'Empty or single element linked list, nothing to reverse';
-    }
+    if(!this.head || !this.head.next) return 'ERROR: Empty or single element linked list, nothing to reverse';
+    if(this.head.next) {
+      let result = null;
+      let current = this.head;
+      let temp;
 
-    let result = null;
-    let current = this.head;
-    let temp;
-
-    while(current) {
-      temp = current.next;
-      current.next = result;
-      result = current;
-      current = temp;
+      while(current) {
+        temp = current.next; //temp reassigned value of current.next, initially whatever contained in head
+        current.next = result; //current.next (initially head.next) reassigned to null;
+        result = current; //result is reassigned the value of current
+        current = temp; //the head becomes the new temp
+      }
+      return {head: result};
     }
-    return result;
-  }
-
-  remove(val) {
-    if(!this.next) {
-      return this;
-    }
-    if(this === val) {
-      this.value = this.next.value;
-      this.next = this.next.next;
-    } else if (this.next === val) {
-      this.next = this.next.next;
-    } else {
-      this.next.remove(val);
-    }
-    return this;
   }
 }
+  //O(n)
+//   remove(head, offset) {
+//     if (offset === 0) return head.next;
 
+//     head.next = remove(head.next, offset - 1);
+//     return head;
+
+//     if(!this.next) {
+//       return this;
+//     }
+
+//     if(this === val) {
+//       this.value = this.next.value;
+//       this.next = this.next.next;
+//     } else if (this.next === val) {
+//       this.next = this.next.next;
+//     } else {
+//       this.next.remove(val);
+//     }
+//     return this;
+//   }
+// }
+
+// Node Delete(Node head, int position) {
+//   if (position == 0) { return head.next; }
+//   head.next = Delete(head.next, position - 1);
+//   return head;
+// }
 module.exports = SLL;
