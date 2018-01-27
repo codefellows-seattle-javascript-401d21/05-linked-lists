@@ -8,13 +8,13 @@ describe('sll.js', () => {
     
     it('should insert node directly after head, with next of null', (done) => {
       test.insertHead(5);
-      expect(test).toEqual({head: { value: 5, next: null}});
+      expect(test).toEqual({length: 1, head: { value: 5, next: null}});
       done();
     });
 
     it('should insert something before the previously node with a value of 5 created earlier, with next equal to the previously created node', (done) => {
       test.insertHead(2);
-      expect(test).toEqual({head: { value: 2, next: { value: 5, next: null}}});
+      expect(test).toEqual({length: 2, head: { value: 2, next: { value: 5, next: null}}});
       done();
     });
 
@@ -29,14 +29,14 @@ describe('sll.js', () => {
 
     it('should insert node at end of list, with given value and next of null', (done) => {
       test.insertEnd(20);
-      expect(test).toEqual({ head: { value: 20, next: null } });
+      expect(test).toEqual({length:1 , head: { value: 20, next: null } });
       done();
     });
 
     it('should insert node at end of list, with given value and next of null', (done) => {
       test.insertEnd(40);
       
-      expect(test).toEqual({ head: { value: 20, next: { value: 40, next: null}}});
+      expect(test).toEqual({length: 2, head: { value: 20, next: { value: 40, next: null}}});
       done();
     });
 
@@ -49,9 +49,9 @@ describe('sll.js', () => {
   describe('sll.reverse()', function() {
     let test = new SLL(), test3 = new SLL();
 
-    it('should insert node at end of list, with given value and next of null', (done) => {
+    it('should reverse order of nodes in list', (done) => {
       let test2 = test.insertHead(1).insertEnd(2).insertEnd(3);
-      expect(test2.reverse()).toEqual({ head: { value: 3, next: { value: 2, next: { value: 1, next: null}}}});
+      expect(test2.reverse()).toEqual({length: 3, head: { value: 3, next: { value: 2, next: { value: 1, next: null}}}});
       done();
     });
     
@@ -61,28 +61,32 @@ describe('sll.js', () => {
     });
 
     it('should return error string if no nodes', (done) => {
-      expect(test.reverse()).toEqual('ERROR: Empty or single element linked list, nothing to reverse');
+      let test4 = new SLL();
+      expect(test4.reverse()).toEqual('ERROR: Empty or single element linked list, nothing to reverse');
       done();
     });
   });
 
   describe('sll.delete()', function() {
     let test = new SLL().insertHead(1).insertEnd(2).insertEnd(3);
+    let test2 = new SLL().insertHead(1).insertEnd(2).insertEnd(3);
+    let test3 = new SLL();
 
-    it('should', function(done) {
-      test.remove(2);
-      expect(test).toEqual({ head: { value: 1, next: { value: 3, next: null}}});
+    it('should remove the first node from the list', function(done) {
+      test.remove(1);
+      expect(test).toEqual({length: 2, head: { value: 2, next: { value: 3, next: null}}});
       done();
     });
 
-    // it('should', function(done) {
+    it('should remove the third node with value of three from the list', function(done) {
+      test2.remove(3);
+      expect(test2).toEqual({ length: 2, head: { value: 1, next: { value: 2, next: null }}});
+      done();
+    });
 
-    //   done();
-    // });
-
-    // it('should', function(done) {
-
-    //   done();
-    // });
+    it('should return error string if no nodes to delete', function(done) {
+      expect(test3.remove(3)).toEqual('ERROR: No nodes to delete');
+      done();
+    });
   });
 });
