@@ -15,6 +15,7 @@ class SLL {
     this.head = nd;
     return this;
   }
+  //Big-O 0(1)
 
   insertEnd(val) {
     //if val is undefined then return null
@@ -30,6 +31,7 @@ class SLL {
     node.next = nd;
     return this;
   }
+  //Big-O 0(n)
 
   reverse() {
     //if this head is null then there is nothing to reverse
@@ -46,6 +48,7 @@ class SLL {
     this.head = curr_node;
     return this;
   }
+  //Big-O 0(n)
 
 
   remove(offset) {
@@ -73,6 +76,7 @@ class SLL {
     }
     return null;
   }
+  //Big-O 0(n)
 
 
   findNthNodeFromEnd(n) {
@@ -88,6 +92,7 @@ class SLL {
     this.head = curr_node;
     return this;
   }
-}
+} 
+//Big-O 0(n)
 
 module.exports = SLL;
