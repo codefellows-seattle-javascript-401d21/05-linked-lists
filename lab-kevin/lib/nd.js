@@ -7,6 +7,6 @@ class Node {
     this.next = null;
   }
 }
-
+//Big-O 0(1)
 module.exports = Node;
 
