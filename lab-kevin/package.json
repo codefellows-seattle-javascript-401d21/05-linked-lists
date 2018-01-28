@@ -1,0 +1,24 @@
+{
+  "name": "lab-kevin",
+  "version": "0.0.0",
+  "description": "05-linked-lists - Singly Linked List Data Structure",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint .", 
+    "test": "jest"
+  },
+  "keywords": [
+    "link",
+    "list",
+    "class",
+    "node"
+  ],
+  "author": "Kevin Miller",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.1.4"
+  }
+}
