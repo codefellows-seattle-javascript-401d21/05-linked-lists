@@ -6,9 +6,9 @@ const ND = require('../lib/ndB.js');
 
 describe('instertHead function', function () {
   //these are complete
-  it('checks to see if the node was made', function () {
+  it('test to see if the node was created', function () {
     let test = new SLL();
-    test.insertHead(9);
+    test.insertHead(12);
     expect(test.head).toBeInstanceOf(ND);
   });
   it('checks to see if nothing is passed in', function () {
@@ -21,7 +21,7 @@ describe('instertHead function', function () {
 describe('insertEnd function', function () {
   it('checks to see if node was made', function () {
     let test = new SLL();
-    test.insertEnd(9);
+    test.insertEnd(12);
     expect(test.head).toBeInstanceOf(ND);
   });
   it('checks to see if nothing is passed in', function () {
@@ -34,17 +34,17 @@ describe('insertEnd function', function () {
 describe('reverseSLL function', function () {
   it('test to see if it reverse only one node SLL', function () {
     let test = new SLL();
-    test.insertHead(1);
-    test.insertEnd(5);
+    test.insertHead(10);
+    test.insertEnd(20);
     expect(test.reverseSLL()).not.toBeNull();
   });
  
   it('checks to see if it reverse the SLL to what i need it to be', function () {
     let one = new SLL();
-    one.insertHead(4);
-    one.insertHead(5);
+    one.insertHead(10);
+    one.insertHead(20);
     one.reverseSLL();
-    expect(one.head.value).toBe(4);
+    expect(one.head.value).toBe(10);
   });
 });
 
