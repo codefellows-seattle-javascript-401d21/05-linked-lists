@@ -2,13 +2,15 @@
   "name": "lab-hector",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "sll.test.js",
   "directories": {
     "lib": "lib"
   },
+  
   "scripts": {
     "test": "jest --verbose"
   },
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
