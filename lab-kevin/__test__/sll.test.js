@@ -1,6 +1,5 @@
 'use strict';
 
-const Nd = require('../lib/nd');
 const SLL = require('../lib/sll');
 
 describe('#ssl tests' ,() => {
