@@ -1,0 +1,15 @@
+{
+  "name": "lab-koko",
+  "version": "1.0.0",
+  "description": "singly linked list data structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^4.16.0",
+    "jest": "^22.1.4"
+  }
+}
