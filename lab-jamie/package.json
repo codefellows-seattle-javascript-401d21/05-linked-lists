@@ -1,0 +1,20 @@
+{
+  "name": "lab-jamie",
+  "version": "1.0.0",
+  "description": "&nbsp; ## Feature Tasks &nbsp; implement a Singly Linked List (SLL) data structure implement insertHead(value), insertEnd(value), reverse(), and remove(offset) methods to the SLL prototype in a comment within each function, note the it's Big-O runtime &nbsp;",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^22.1.4"
+  },
+    "scripts": {
+    "test": "jest --verbose"
+  }
+}
